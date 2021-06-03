@@ -155,3 +155,110 @@ fn another_function(x: i32,y:i32)
 //     }
 //     println!("LIFTOFF");
 // }
+/*
+소유권 
+러스트의 핵심 기능은 바로 소유권이다 
+모든 프로그램은 실행하는 동안 컴퓨터의 메모리를 사용하는 방법을
+관리해야 된다 
+몇몇 언어들은 프로그램이 실행되는 동아에 사용하지 않는 메모리가 끊임없이 찾는 
+가비지 콜렉션을 갖고 있다 다른 언어들이 프로그래머가 직접
+명시적으로 메모리를 할당하고 해제해야 된다 러스트는 제 3의 접근법을 사용한다
+메모리는 컴파일 타임에 컴파일러가 체크할 규칙들로 구성되 소유권 시스템을
+통합 관리합니다 소유권 기능들의 어떤 것도 런타임 비용을 발생하지 않는다.
+소유권이란 개념이 많은 프로그래머들에게 새로운 것이기 때문에 이해하고 사용하는데
+시간이 걸린다  러스트의 소유권 시스템의 규칙에 더 많은 경험을 할 수록 더욱
+안전하고 효율적인 코드를 개발할 수 있게된다.
+
+스택과 힙
+많은 프로그램 언어들은 스택과 힙을 자주 생각할 필요가 없다 하지만
+러스트와 같은 시스템 프로그래밍 언어에서는 값이, 수택에 있는지 힙에 있는지
+에 대한 여부에 따라서 언어의 동작과 방식에 큰 영향을 준다
+
+소유권 규칙
+러스트의 각각의 값은 해당값의 오너라고 불리는 변수를 갖는다
+한번에 하나의 오너만이 존재한다
+오너가 스코프 밖으로 벗어나는 때 값이 버려진다
+*/
+
+// fn main()
+// {
+//     let mut s =String :: from("hello");
+//     //기본으로 string이 되어 있음
+//     s.push_str(", world");
+//     println!("{}",s);
+// }
+
+// fn main()
+// {
+//     let stirng_first = String::from("hello");
+//     let string_second = stirng_first.clone();
+
+//     println!("string_first = {}, string_second = {}",string_first, string_second);
+
+// }
+
+// fn main() {
+// let s1 = String::from("hello");
+// let s2 = s1.clone();
+
+// println!("s1 = {}, s2 = {}", s1, s2);
+// }
+
+// fn takes_ownership(some_string: String)
+// {
+//     println!("{}", some_string);
+// }
+
+// fn makes_copy(some_integer: i32)
+// {
+//     println!("{}", some_integer);
+// }
+
+// fn main()
+// {
+//     let s = String::from("hello");
+
+//     takes_ownership(s);
+
+//     let x = 5;
+
+//     makes_copy(x);
+// }
+
+// fn gives_ownership() -> String
+// {
+//     let some_string = String::from("hello");
+
+//     some_string
+// }
+
+// fn takes_and_gives_back(a_string: String) -> String
+// {
+//     a_string
+// }
+
+// fn main()
+// {
+//     let string_first = gives_ownership();
+
+//     let string_second = String::from("hello");
+
+//     let string_third = takes_and_gives_back(string_second);
+// }
+// // 변수의 소유권은 모든 순간 똑같은 패턴을 따른다.
+// //모든 함수가 소유권을 가져싿가 반납한다
+
+fn calculate_length(s: String) -> (String, usize)
+{
+    let length = s.len();
+    (s, length)
+}
+
+fn main()
+{
+    let string_first = String::from("hello");
+
+    let (string_second, len) = calculate_length(string_first);
+
+    println!("the length of '{}' is {}",string_second, len);
+}
