@@ -248,17 +248,183 @@ fn another_function(x: i32,y:i32)
 // // 변수의 소유권은 모든 순간 똑같은 패턴을 따른다.
 // //모든 함수가 소유권을 가져싿가 반납한다
 
-fn calculate_length(s: String) -> (String, usize)
-{
-    let length = s.len();
-    (s, length)
-}
+// fn calculate_length(s: String) -> (String, usize)
+// {
+//     let length = s.len();
+//     (s, length)
+// }
 
-fn main()
-{
-    let string_first = String::from("hello");
+// fn main()
+// {
+//     let string_first = String::from("hellwo");
 
-    let (string_second, len) = calculate_length(string_first);
+//     let (string_second, len) = calculate_length(string_first);
 
-    println!("the length of '{}' is {}",string_second, len);
-}
+//     println!("the length of '{}' is {}",string_second, len);
+// }
+// fn calculate_length (s: &String) -> usize
+// {
+//     s. len()
+// }
+
+// fn main()
+// {
+//     let stirng_first = String::from("hello world");
+
+//     let len = calculate_length(&stirng_first);
+
+//     println!("the length of '{}' is {}", stirng_first,len);
+// }
+
+// fn change(some_string: &mut String)
+// {
+//     some_string.push_str(", world");
+// }
+
+// fn main()
+// {
+//     let mut s = String::from("hello");
+
+//     change(&mut s);
+// }
+/*
+참조자의 규칙
+1. 어떠한 경우에도 아래에 둘중 하나만 가질 수 있다
+ 히니의 가변 참조자
+  임의 개수의 불변 참조자
+
+2. 참조자는 항상 유효해야 된다
+*/
+// fn first_word(s: &String) -> usize
+// {
+//     let bytes = s.as_bytes();
+
+//     for(i,&item) in bytes.iter().enumerate()
+//     {
+//         if item == b ''
+//         {
+//             return i;
+//         }
+//     }
+//     s.len()
+// }
+
+// fn main()
+// {
+//     let mut a = String::from("hello world");
+
+//     let word = first_word(&s);
+
+//     s.clear();
+// }
+
+// struct User
+// {
+//     username:String,
+//     eamil: String,
+//     sign_in_count: u64,
+//     active: bool,
+// }
+
+// let user1 = User
+// {
+//     email: String::from("nebula201030@gmail.com"),
+//     username: String::from("nebula201030"),
+//     active: true,
+//     sign_in_count: 1,
+// };
+
+// let user2 = User
+// {
+//     email: String::from(""),
+//     username: String::from(""),
+//     ..user1
+// };
+
+// user1.email= String::from("godos0104@gmail.com")
+
+// fn build_user(email: String, username: String) -> User
+// {
+//     User
+//     {
+//         email:email,
+//         username:username,
+//         active:true,
+//         sign_in_count: 1,
+//     }
+// }
+
+// fn main()
+// {
+//     let length1 = 50;
+//     let width1 = 30;
+
+//     println!
+//     ("the area of the rectangle is {} square pixels.", area(length1, width1));
+// }
+
+// fn area(length:u32, width: u32) -> u32
+// {
+//     length * width
+// }
+
+// fn main(){
+//     let rect1 = (50,30);
+
+//     println!(
+//         "the area of the rectangle is {} square pixels.", area(rect1)
+//     );
+// }
+
+// fn area(dimensios: (u32, u32)) -> u32{
+//     dimensios.0 * dimensios.1
+// }
+
+// struct Rectangle
+// {
+//     length : u32,
+//     width: u32,
+// }
+
+// fn main()
+// {
+//     let rect1 = Rectangle{ length: 500, width: 30};
+
+//     println!
+//     (
+//     "the area of the rectangle is {} square pixels.", area(&rect1)
+//     );
+// }
+
+// fn area(rectangle: &Rectangle) -> u32
+// {
+//     rectangle.length * rectangle.width
+// }
+// struct Person{
+//     name:String,
+//     age: u8,
+//     likes_oranges: bool,
+// }
+
+// //struct Point2D(u32,u32);
+
+// //struct Unit;
+
+// fn main(){
+//     let person = Person{
+//         name: String::from("Adam"),
+//         likes_oranges: true,
+//         age: 25
+//     };
+
+//     //let origin = Point2D(0,0);
+
+//     //let unit = Unit;
+
+//     if person.likes_oranges{
+//         println!("{:?} is {:?} and likes orange",person.name, person.age);      
+//     }
+//     else{
+//         println!("{:?} is {:?} and doesn't like orange",person.name,person.age);
+//     }
+// }
