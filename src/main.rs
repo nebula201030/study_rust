@@ -9,12 +9,12 @@ Rust의 기본 변수는 불변성 입니다. 이것은 Rust가 제공하는 안
 변수가 불변성인 경우, 일단 값이 이름에 bound 되면 해당 값을 변경 할 수 없습니다.
 시험삼아 아래처럼 코드를 생성해 보았습니다
 */
-// fn main(){
-//     let  x = 5;
-//     println!("the value of x is: {}",x);
-//     x = 6;
-//     println!("the value of x is: {}",x);
-// }
+fn main(){
+    let  x = 5;
+    println!("the value of x is: {}",x);
+    x = 6;
+    println!("the value of x is: {}",x);
+}
 
 /*
 cargo build 이후 cargo run을 실행시켜 봅시다.
